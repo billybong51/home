@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Launcher</title>
+    <style>
+        /* Remove default margins and prevent scrolling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+        }
+
+        /* The Full Screen Button */
+        .giant-button {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 5vw; /* Scales with screen size */
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        /* Hover Effect */
+        .giant-button:hover {
+            background: linear-gradient(135deg, #222 0%, #111 100%);
+            color: #4facfe; /* Glow color on hover */
+            text-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+        }
+
+        /* Click Animation */
+        .giant-button:active {
+            transform: scale(0.98);
+            filter: brightness(0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <button class="giant-button" onclick="window.open('https://thegamewebsite.github.io/home', '_blank')">
+        Click On Me
+    </button>
+
+</body>
+</html>
