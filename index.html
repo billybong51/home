@@ -3,61 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Screen Launcher</title>
+    <title>Enter Portal</title>
     <style>
-        /* Remove default margins and prevent scrolling */
-        * {
+        /* Full-screen setup with a moving background */
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            height: 100%;
             width: 100%;
+            height: 100%;
             overflow: hidden;
-            font-family: 'Inter', sans-serif;
-            background-color: #000;
+            background: linear-gradient(135deg, #0b1d3a, #1a1a2e, #16213e);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* The Full Screen Button */
-        .giant-button {
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* The massive button */
+        .fullscreen-btn {
             width: 100vw;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
-            color: white;
+            background: transparent;
             border: none;
-            cursor: pointer;
-            font-size: 5vw; /* Scales with screen size */
+            color: #4cc9f0;
+            font-size: 10vw; /* Responsive huge text */
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            transition: all 0.3s ease;
+            letter-spacing: 1.5rem;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             outline: none;
+            text-shadow: 0 0 20px rgba(76, 201, 240, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
         }
 
-        /* Hover Effect */
-        .giant-button:hover {
-            background: linear-gradient(135deg, #222 0%, #111 100%);
-            color: #4facfe; /* Glow color on hover */
-            text-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+        /* Cool hover effect */
+        .fullscreen-btn:hover {
+            color: #ffffff;
+            text-shadow: 0 0 50px rgba(76, 201, 240, 1),
+                         0 0 100px rgba(76, 201, 240, 0.6);
+            transform: scale(1.05);
+            letter-spacing: 2.5rem;
         }
 
-        /* Click Animation */
-        .giant-button:active {
-            transform: scale(0.98);
-            filter: brightness(0.8);
+        /* Subtle pulsing animation to invite the click */
+        .fullscreen-btn {
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { opacity: 0.7; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <button class="giant-button" onclick="window.open('https://thegamewebsite.github.io/home', '_blank')">
-        Click On Me
+    <button class="fullscreen-btn" onclick="openTarget()">
+        CLICK ME
     </button>
+
+    <script>
+        function openTarget() {
+            // Opens the specific home link in a new regular tab
+            window.open("https://schoolissuperfun.github.io/home", "_blank");
+        }
+    </script>
 
 </body>
 </html>
